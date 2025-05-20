@@ -12,26 +12,59 @@
       grid-template-columns: repeat(7, 1fr);
       gap: 1rem;
       margin-top: 2rem;
-      background: #fff;
+      background: var(--card-bg);
       border-radius: 10px;
       padding: 1.5rem;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     .day {
-      border: 1px solid #ddd;
+      border: 1px solid var(--card-border);
       border-radius: 8px;
       padding: 0.5rem;
       text-align: center;
       font-weight: 600;
+      color: var(--text-color);
       position: relative;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .day:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
     .event {
       margin-top: 0.3rem;
-      background-color: #0077ff;
+      background-color: var(--accent-color);
       color: white;
       padding: 0.2rem 0.5rem;
       font-size: 0.75rem;
       border-radius: 4px;
+      display: block;
+    }
+    #event-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--card-bg);
+      color: var(--text-color);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 2000;
+    }
+    #event-modal h3 {
+      margin-top: 0;
+    }
+    #close-modal {
+      margin-top: 1rem;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -54,45 +87,65 @@
     <section class="card">
       <h2><i class="fas fa-calendar-alt"></i> Global Event Calendar</h2>
       <div class="calendar-grid">
-        <div class="day">1</div>
-        <div class="day">2</div>
+        <div class="day" data-event="">1</div>
+        <div class="day" data-event="Club Expo at lunch in quad">2 <span class="event">Club Expo</span></div>
         <div class="day">3</div>
         <div class="day">4</div>
-        <div class="day">5</div>
+        <div class="day" data-event="City-wide Unity Parade at 10am">5 <span class="event">Unity Parade</span></div>
         <div class="day">6</div>
         <div class="day">7</div>
-        <div class="day">8</div>
+        <div class="day" data-event="Wellness booths and workshops all week">8 <span class="event">Wellness Week</span></div>
         <div class="day">9</div>
-        <div class="day">10 <div class="event">Eco Fundraiser</div></div>
+        <div class="day" data-event="Fundraiser for local sustainability projects">10 <span class="event">Eco Fundraiser</span></div>
         <div class="day">11</div>
-        <div class="day">12</div>
+        <div class="day" data-event="International food, art, and performances">12 <span class="event">Cultural Fest</span></div>
         <div class="day">13</div>
         <div class="day">14</div>
         <div class="day">15</div>
-        <div class="day">16</div>
+        <div class="day" data-event="Students volunteer for school clean up">16 <span class="event">Service Day</span></div>
         <div class="day">17</div>
         <div class="day">18</div>
         <div class="day">19</div>
-        <div class="day">20</div>
+        <div class="day" data-event="Networking with student leaders">20 <span class="event">Leadership Mixer</span></div>
         <div class="day">21</div>
         <div class="day">22</div>
         <div class="day">23</div>
         <div class="day">24</div>
-        <div class="day">25 <div class="event">Spirit Week</div></div>
+        <div class="day" data-event="Dress up themes and games all week">25 <span class="event">Spirit Week</span></div>
         <div class="day">26</div>
-        <div class="day">27</div>
+        <div class="day" data-event="Talk on innovation and leadership">27 <span class="event">Guest Speaker</span></div>
         <div class="day">28</div>
         <div class="day">29</div>
         <div class="day">30</div>
-        <div class="day">31 <div class="event">Culture Day</div></div>
+        <div class="day" data-event="Showcase of global cultures and talents">31 <span class="event">Culture Day</span></div>
       </div>
     </section>
   </main>
 
+  <div id="event-modal">
+    <h3 id="modal-title"></h3>
+    <p id="modal-description"></p>
+    <button id="close-modal">Close</button>
+  </div>
+
   <footer>
     <p>&copy; 2025 LeadShare. All rights reserved.</p>
   </footer>
+  <script>
+    document.querySelectorAll(".day[data-event]").forEach(day => {
+      day.addEventListener("click", () => {
+        const description = day.getAttribute("data-event");
+        if (description) {
+          document.getElementById("modal-title").textContent = day.querySelector(".event")?.textContent || "Event";
+          document.getElementById("modal-description").textContent = description;
+          document.getElementById("event-modal").style.display = "block";
+        }
+      });
+    });
+    document.getElementById("close-modal").addEventListener("click", () => {
+      document.getElementById("event-modal").style.display = "none";
+    });
+  </script>
   <script src="script.js" defer></script>
-  
 </body>
 </html>
