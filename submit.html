@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit - LeadShare</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">LeadShare</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="forums.html">Forums</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="submit.html">Submit</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Submit Your Leadership Idea</h2>
+      <form id="ideaForm">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="school">School Name</label>
+        <input type="text" id="school" name="school" required />
+
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" required />
+
+        <label for="type">Type of Submission</label>
+        <select id="type" name="type">
+          <option value="idea">Idea</option>
+          <option value="event">Event</option>
+          <option value="photo">Photo</option>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+      <div id="submitMessage" style="margin-top: 1rem; display: none;"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LeadShare. All rights reserved.</p>
+  </footer>
+
+  
+</body>
+</html>

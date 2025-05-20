@@ -1,0 +1,228 @@
+:root {
+  --accent-color: #0077ff;
+  --bg-light: #f0f9ff;
+  --bg-lighter: #e3f2fd;
+  --text-color: #1a1a1a;
+  --card-bg: white;
+  --card-border: #e6ecf0;
+  --footer-bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, var(--bg-light), var(--bg-lighter));
+  color: var(--text-color);
+  transition: background 0.5s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  --accent-color: #66b2ff;
+  --bg-light: #1f2937;
+  --bg-lighter: #111827;
+  --text-color: #f9f9f9;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --footer-bg: #0f172a;
+}
+
+.navbar {
+  background-color: var(--card-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--accent-color);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.card:nth-of-type(2) { animation-delay: 0.1s; }
+.card:nth-of-type(3) { animation-delay: 0.2s; }
+.card:nth-of-type(4) { animation-delay: 0.3s; }
+.card:nth-of-type(5) { animation-delay: 0.4s; }
+.card:nth-of-type(6) { animation-delay: 0.5s; }
+.card:nth-of-type(7) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--footer-bg);
+  color: #888;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 3rem;
+}
+
+input, textarea, select, button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  background: white;
+  color: black;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: none;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #005fd1;
+}
+
+.theme-toggle,
+.theme-picker {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 9999;
+}
+
+.theme-picker button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-picker .blue { background-color: #0077ff; }
+.theme-picker .green { background-color: #00c853; }
+.theme-picker .purple { background-color: #8e24aa; }
+
+.resource-list li a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.resource-list li a:hover {
+  text-decoration: underline;
+}
+
+
+/* Toggle Switch Styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; width: 20px;
+  left: 4px; bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+body.dark-mode.blue {
+  --accent-color: #4da6ff; /* softer blue for dark mode */
+}
+
+body.dark-mode.green {
+  --accent-color: #00e676; /* vibrant neon green */
+}
+
+body.dark-mode.purple {
+  --accent-color: #d05ce3; /* pastel purple */
+}

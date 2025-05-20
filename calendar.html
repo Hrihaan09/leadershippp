@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar - LeadShare</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .day {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: 600;
+      position: relative;
+    }
+    .event {
+      margin-top: 0.3rem;
+      background-color: #0077ff;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">LeadShare</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="forums.html">Forums</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="submit.html">Submit</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2><i class="fas fa-calendar-alt"></i> Global Event Calendar</h2>
+      <div class="calendar-grid">
+        <div class="day">1</div>
+        <div class="day">2</div>
+        <div class="day">3</div>
+        <div class="day">4</div>
+        <div class="day">5</div>
+        <div class="day">6</div>
+        <div class="day">7</div>
+        <div class="day">8</div>
+        <div class="day">9</div>
+        <div class="day">10 <div class="event">Eco Fundraiser</div></div>
+        <div class="day">11</div>
+        <div class="day">12</div>
+        <div class="day">13</div>
+        <div class="day">14</div>
+        <div class="day">15</div>
+        <div class="day">16</div>
+        <div class="day">17</div>
+        <div class="day">18</div>
+        <div class="day">19</div>
+        <div class="day">20</div>
+        <div class="day">21</div>
+        <div class="day">22</div>
+        <div class="day">23</div>
+        <div class="day">24</div>
+        <div class="day">25 <div class="event">Spirit Week</div></div>
+        <div class="day">26</div>
+        <div class="day">27</div>
+        <div class="day">28</div>
+        <div class="day">29</div>
+        <div class="day">30</div>
+        <div class="day">31 <div class="event">Culture Day</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LeadShare. All rights reserved.</p>
+  </footer>
+  <script src="script.js" defer></script>
+  
+</body>
+</html>
