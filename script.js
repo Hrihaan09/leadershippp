@@ -1,32 +1,3 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCtGEHsWLZqUARxUWGW34K47Wze-ECfAlE",
-  authDomain: "leadshare-e473c.firebaseapp.com",
-  projectId: "leadshare-e473c",
-  storageBucket: "leadshare-e473c.firebasestorage.app",
-  messagingSenderId: "918335186186",
-  appId: "1:918335186186:web:eaaa0b378dfdd8c6cb06f3",
-  measurementId: "G-7KWTJNY7H1"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-// 🔁 Auth state listener (optional)
-auth.onAuthStateChanged(user => {
-  const info = document.getElementById('user-info');
-  if (user && info) {
-    info.innerHTML = `<img src="${user.photoURL}" style="width:30px;border-radius:50%;"> ${user.displayName}`;
-  }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("ideaForm");
     const message = document.getElementById("submitMessage");
@@ -137,20 +108,5 @@ document.addEventListener("DOMContentLoaded", function () {
         const event = new Event("click");
         document.querySelector(.theme-picker .${savedAccent})?.dispatchEvent(event);
       }
-        // 🔓 Google login
-      const loginBtn = document.getElementById("login-btn");
-      const logoutBtn = document.getElementById("logout-btn");
-
-      if (loginBtn) {
-        loginBtn.addEventListener("click", () => {
-          const provider = new firebase.auth.GoogleAuthProvider();
-          auth.signInWithPopup(provider).catch(console.error);
-        });
-      }
-
-      if (logoutBtn) {
-        logoutBtn.addEventListener("click", () => {
-          auth.signOut();
-        });
-      }
-    });
+      
+  });
